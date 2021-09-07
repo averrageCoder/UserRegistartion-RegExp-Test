@@ -12,6 +12,26 @@ public class UserRegistartionRegex {
 		firstNameValidator();
 		lastNameValidator();
 		emailValidator();
+		mobilePhoneValidator();
+	}
+
+	private static void mobilePhoneValidator() {
+		
+		Pattern phonePattern = Pattern.compile("^[0-9]{2}\\s[0-9]{10}$");
+		Matcher matcher;
+		
+		System.out.println("\nEnter email: ");
+		String phoneNumber = "91 9876543210"; //scan.nextLine();
+		
+		matcher = phonePattern.matcher(phoneNumber);
+		boolean matchFound = matcher.find();
+		if(matchFound) {
+			System.out.println(phoneNumber+" -\t Valid");
+		} 
+		else {
+			System.out.println(phoneNumber+" -\t Invalid");
+		}
+		
 	}
 
 	private static void emailValidator() {
