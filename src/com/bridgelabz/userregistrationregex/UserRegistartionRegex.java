@@ -18,11 +18,11 @@ public class UserRegistartionRegex {
 
 	private static void passwordValidator() {
 		
-		Pattern passwordPattern = Pattern.compile("^(?=.*[A-Z])(?=.*\\d)[\\S]{8,}$");
+		Pattern passwordPattern = Pattern.compile("^(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*#?&])[\\S]{8,}$");
 		Matcher matcher;
 		
 		System.out.println("\nEnter password: ");
-		String password = "s9dS%ssd"; //scan.nextLine();
+		String password = "s9dSs%sd"; //scan.nextLine();
 		
 		matcher = passwordPattern.matcher(password);
 		boolean matchFound = matcher.find();
