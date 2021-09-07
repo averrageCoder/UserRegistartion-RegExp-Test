@@ -13,6 +13,27 @@ public class UserRegistartionRegex {
 		lastNameValidator();
 		emailValidator();
 		mobilePhoneValidator();
+		passwordValidator();
+	}
+
+	private static void passwordValidator() {
+		
+		Pattern passwordPattern = Pattern.compile("^[\\S]{8,}$");
+		Matcher matcher;
+		
+		System.out.println("\nEnter password: ");
+		String password = "987ds%543d"; //scan.nextLine();
+		
+		matcher = passwordPattern.matcher(password);
+		boolean matchFound = matcher.find();
+		if(matchFound) {
+			System.out.println(password+" -\t Valid");
+		} 
+		else {
+			System.out.println(password+" -\t Invalid");
+		}
+		
+		
 	}
 
 	private static void mobilePhoneValidator() {
