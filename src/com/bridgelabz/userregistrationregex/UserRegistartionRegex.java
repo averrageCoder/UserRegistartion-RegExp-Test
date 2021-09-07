@@ -11,23 +11,43 @@ public class UserRegistartionRegex {
 	public static void main(String[] args) {
 		firstNameValidator();
 		lastNameValidator();
+		emailValidator();
+	}
+
+	private static void emailValidator() {
+		
+		Pattern emailPattern = Pattern.compile("^abc([.+_-][A-Z0-9]+)?[A-Z0-9]*[@][A-Z0-9]+.[A-Z]{2,}(.[A-Z]{2,6})?$",Pattern.CASE_INSENSITIVE);
+		Matcher matcher;
+		
+		System.out.println("\nEnter email: ");
+		String email = "abc-100@yahoo.com"; //scan.nextLine();
+		
+		matcher = emailPattern.matcher(email);
+		boolean matchFound = matcher.find();
+		if(matchFound) {
+			System.out.println(email+" -\t Valid");
+		} 
+		else {
+			System.out.println(email+" -\t Invalid");
+		}
+		
 	}
 
 	private static void lastNameValidator() {
 		
-		Pattern firstNamePattern = Pattern.compile("^[A-Z][a-z]{2,}");
+		Pattern lastNamePattern = Pattern.compile("^[A-Z][a-z]{2,}");
 		Matcher matcher;
 		
 		System.out.println("\nEnter last name: ");
-		String firstName = "Jain"; //scan.nextLine();
+		String lastName = "Jain"; //scan.nextLine();
 		
-		matcher = firstNamePattern.matcher(firstName);
+		matcher = lastNamePattern.matcher(lastName);
 		boolean matchFound = matcher.find();
 		if(matchFound) {
-			System.out.println(firstName+" -\t Valid");
+			System.out.println(lastName+" -\t Valid");
 		} 
 		else {
-			System.out.println(firstName+" -\t Invalid");
+			System.out.println(lastName+" -\t Invalid");
 		}
 		
 	}
