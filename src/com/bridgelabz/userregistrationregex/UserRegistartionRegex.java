@@ -25,9 +25,8 @@ public class UserRegistartionRegex {
 
 	public boolean emailValidator(String email) {
 		
-		Pattern emailPattern = Pattern.compile("^abc([\\.\\+\\_\\-][A-Z0-9]+)?[A-Z0-9]*[@][A-Z0-9]+.[A-Z]{2,}(.[A-Z]{2,6})?$",Pattern.CASE_INSENSITIVE);
+		Pattern emailPattern = Pattern.compile("^abc([.+_-][A-Z0-9]+)?[A-Z0-9]*[@][A-Za-z0-9]+.[A-Za-z]{2,}(.[A-Za-z]{2,6})?$",Pattern.CASE_INSENSITIVE);
 		Matcher matcher;
-		
 		matcher = emailPattern.matcher(email);
 		boolean matchFound = matcher.find();
 		return matchFound;
