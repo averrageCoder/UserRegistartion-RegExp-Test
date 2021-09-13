@@ -13,7 +13,7 @@ public class UserRegisterationTest {
 		try {
 			ExpectedException exceptionRule = ExpectedException.none();
 			exceptionRule.expect(UserRegisterationException.class);
-			userValidator.firstNameLastNameValidator("Nasir");
+			userValidator.firstNameLastNameValidator.testRegex("Nasir");
 		}
 		catch (UserRegisterationException e) {
 			assertEquals(e.type,UserRegisterationException.ExceptionType.VALID_NAME);
@@ -26,7 +26,7 @@ public class UserRegisterationTest {
 		try {
 			ExpectedException exceptionRule = ExpectedException.none();
 			exceptionRule.expect(UserRegisterationException.class);
-			userValidator.firstNameLastNameValidator("nas");
+			userValidator.firstNameLastNameValidator.testRegex("nas");
 		}
 		catch (UserRegisterationException e) {
 			assertEquals(e.type,UserRegisterationException.ExceptionType.INVALID_NAME);
@@ -39,7 +39,7 @@ public class UserRegisterationTest {
 		try {
 			ExpectedException exceptionRule = ExpectedException.none();
 			exceptionRule.expect(UserRegisterationException.class);
-			userValidator.firstNameLastNameValidator(null);
+			userValidator.firstNameLastNameValidator.testRegex(null);
 		}
 		catch (UserRegisterationException e) {
 			assertEquals(e.type,UserRegisterationException.ExceptionType.ENTERED_NULL);
@@ -52,7 +52,7 @@ public class UserRegisterationTest {
 		try {
 			ExpectedException exceptionRule = ExpectedException.none();
 			exceptionRule.expect(UserRegisterationException.class);
-			userValidator.firstNameLastNameValidator("");
+			userValidator.firstNameLastNameValidator.testRegex("");
 		}
 		catch (UserRegisterationException e) {
 			assertEquals(e.type,UserRegisterationException.ExceptionType.ENTERED_EMPTY);
@@ -65,7 +65,7 @@ public class UserRegisterationTest {
 		try {
 			ExpectedException exceptionRule = ExpectedException.none();
 			exceptionRule.expect(UserRegisterationException.class);
-			userValidator.firstNameLastNameValidator("Jain");
+			userValidator.firstNameLastNameValidator.testRegex("Jain");
 		}
 		catch (UserRegisterationException e) {
 			assertEquals(e.type,UserRegisterationException.ExceptionType.VALID_NAME);
@@ -78,7 +78,7 @@ public class UserRegisterationTest {
 		try {
 			ExpectedException exceptionRule = ExpectedException.none();
 			exceptionRule.expect(UserRegisterationException.class);
-			userValidator.firstNameLastNameValidator("jai");
+			userValidator.firstNameLastNameValidator.testRegex("jai");
 		}
 		catch (UserRegisterationException e) {
 			assertEquals(e.type,UserRegisterationException.ExceptionType.INVALID_NAME);
@@ -91,7 +91,7 @@ public class UserRegisterationTest {
 		try {
 			ExpectedException exceptionRule = ExpectedException.none();
 			exceptionRule.expect(UserRegisterationException.class);
-			userValidator.firstNameLastNameValidator(null);
+			userValidator.firstNameLastNameValidator.testRegex(null);
 		}
 		catch (UserRegisterationException e) {
 			assertEquals(e.type,UserRegisterationException.ExceptionType.ENTERED_NULL);
@@ -104,7 +104,7 @@ public class UserRegisterationTest {
 		try {
 			ExpectedException exceptionRule = ExpectedException.none();
 			exceptionRule.expect(UserRegisterationException.class);
-			userValidator.firstNameLastNameValidator("");
+			userValidator.firstNameLastNameValidator.testRegex("");
 		}
 		catch (UserRegisterationException e) {
 			assertEquals(e.type,UserRegisterationException.ExceptionType.ENTERED_EMPTY);
@@ -118,7 +118,7 @@ public class UserRegisterationTest {
 		try {
 			ExpectedException exceptionRule = ExpectedException.none();
 			exceptionRule.expect(UserRegisterationException.class);
-			userValidator.mobilePhoneValidator("91 9876543210");
+			userValidator.mobilePhoneValidator.testRegex("91 9876543210");
 		}
 		catch (UserRegisterationException e) {
 			assertEquals(e.type,UserRegisterationException.ExceptionType.VALID_PHONE_NUMBER);
@@ -132,7 +132,7 @@ public class UserRegisterationTest {
 		try {
 			ExpectedException exceptionRule = ExpectedException.none();
 			exceptionRule.expect(UserRegisterationException.class);
-			userValidator.mobilePhoneValidator("9876543210");
+			userValidator.mobilePhoneValidator.testRegex("9876543210");
 		}
 		catch (UserRegisterationException e) {
 			assertEquals(e.type,UserRegisterationException.ExceptionType.INVALID_PHONE_NUMBER);
@@ -145,7 +145,7 @@ public class UserRegisterationTest {
 		try {
 			ExpectedException exceptionRule = ExpectedException.none();
 			exceptionRule.expect(UserRegisterationException.class);
-			userValidator.mobilePhoneValidator(null);
+			userValidator.mobilePhoneValidator.testRegex(null);
 		}
 		catch (UserRegisterationException e) {
 			assertEquals(e.type,UserRegisterationException.ExceptionType.ENTERED_NULL);
@@ -158,7 +158,7 @@ public class UserRegisterationTest {
 		try {
 			ExpectedException exceptionRule = ExpectedException.none();
 			exceptionRule.expect(UserRegisterationException.class);
-			userValidator.mobilePhoneValidator("");
+			userValidator.mobilePhoneValidator.testRegex("");
 		}
 		catch (UserRegisterationException e) {
 			assertEquals(e.type,UserRegisterationException.ExceptionType.ENTERED_EMPTY);
@@ -171,7 +171,7 @@ public class UserRegisterationTest {
 		try {
 			ExpectedException exceptionRule = ExpectedException.none();
 			exceptionRule.expect(UserRegisterationException.class);
-			userValidator.passwordValidator("pa2@Word");
+			userValidator.passwordValidator.testRegex("pa2@Word");
 		}
 		catch (UserRegisterationException e) {
 			assertEquals(e.type,UserRegisterationException.ExceptionType.VALID_PASSWORD);
@@ -184,7 +184,7 @@ public class UserRegisterationTest {
 		try {
 			ExpectedException exceptionRule = ExpectedException.none();
 			exceptionRule.expect(UserRegisterationException.class);
-			userValidator.passwordValidator("okay1@34");
+			userValidator.passwordValidator.testRegex("okay1@34");
 		}
 		catch (UserRegisterationException e) {
 			assertEquals(e.type,UserRegisterationException.ExceptionType.INAVLID_PASSWORD);
@@ -198,7 +198,7 @@ public class UserRegisterationTest {
 		try {
 			ExpectedException exceptionRule = ExpectedException.none();
 			exceptionRule.expect(UserRegisterationException.class);
-			userValidator.passwordValidator("Okay1234");
+			userValidator.passwordValidator.testRegex("Okay1234");
 		}
 		catch (UserRegisterationException e) {
 			assertEquals(e.type,UserRegisterationException.ExceptionType.INAVLID_PASSWORD);
@@ -212,7 +212,7 @@ public class UserRegisterationTest {
 		try {
 			ExpectedException exceptionRule = ExpectedException.none();
 			exceptionRule.expect(UserRegisterationException.class);
-			userValidator.passwordValidator(null);
+			userValidator.passwordValidator.testRegex(null);
 		}
 		catch (UserRegisterationException e) {
 			assertEquals(e.type,UserRegisterationException.ExceptionType.ENTERED_NULL);
@@ -225,7 +225,7 @@ public class UserRegisterationTest {
 		try {
 			ExpectedException exceptionRule = ExpectedException.none();
 			exceptionRule.expect(UserRegisterationException.class);
-			userValidator.passwordValidator("");
+			userValidator.passwordValidator.testRegex("");
 		}
 		catch (UserRegisterationException e) {
 			assertEquals(e.type,UserRegisterationException.ExceptionType.ENTERED_EMPTY);
@@ -238,7 +238,7 @@ public class UserRegisterationTest {
 		try {
 			ExpectedException exceptionRule = ExpectedException.none();
 			exceptionRule.expect(UserRegisterationException.class);
-			userValidator.emailValidator("abc@bridgelabz.com");
+			userValidator.emailValidator.testRegex("abc@bridgelabz.com");
 		}
 		catch (UserRegisterationException e) {
 			assertEquals(e.type,UserRegisterationException.ExceptionType.VALID_EMAIL);
@@ -251,7 +251,7 @@ public class UserRegisterationTest {
 		try {
 			ExpectedException exceptionRule = ExpectedException.none();
 			exceptionRule.expect(UserRegisterationException.class);
-			userValidator.emailValidator("abcs@@bridgelabz.com");
+			userValidator.emailValidator.testRegex("abcs@@bridgelabz.com");
 		}
 		catch (UserRegisterationException e) {
 			assertEquals(e.type,UserRegisterationException.ExceptionType.INVALID_EMAIL);
@@ -264,7 +264,7 @@ public class UserRegisterationTest {
 		try {
 			ExpectedException exceptionRule = ExpectedException.none();
 			exceptionRule.expect(UserRegisterationException.class);
-			userValidator.emailValidator(null);
+			userValidator.emailValidator.testRegex(null);
 		}
 		catch (UserRegisterationException e) {
 			assertEquals(e.type,UserRegisterationException.ExceptionType.ENTERED_NULL);
@@ -277,7 +277,7 @@ public class UserRegisterationTest {
 		try {
 			ExpectedException exceptionRule = ExpectedException.none();
 			exceptionRule.expect(UserRegisterationException.class);
-			userValidator.emailValidator("");
+			userValidator.emailValidator.testRegex("");
 		}
 		catch (UserRegisterationException e) {
 			assertEquals(e.type,UserRegisterationException.ExceptionType.ENTERED_EMPTY);
