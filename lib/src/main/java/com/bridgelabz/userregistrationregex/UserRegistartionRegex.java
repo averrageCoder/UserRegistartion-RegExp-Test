@@ -2,8 +2,14 @@ package com.bridgelabz.userregistrationregex;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@FunctionalInterface
+interface UserRegisterationRegexIF {
+	void testRegex(String str);
+}
+
 public class UserRegistartionRegex {
-	public  boolean passwordValidator(String password) throws UserRegisterationException {	
+	
+	UserRegisterationRegexIF passwordValidator = (String password) -> {
 		Pattern passwordPattern = Pattern.compile("^(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*#?&])[\\S]{8,}$");
 		Matcher matcher;
 		try {
@@ -18,10 +24,10 @@ public class UserRegistartionRegex {
 		}
 		catch (NullPointerException e) {
 			throw new UserRegisterationException(UserRegisterationException.ExceptionType.ENTERED_NULL, "PLEASE ENTER A VALID PASSWORD");
-		}		
-	}
-
-	public void mobilePhoneValidator(String phoneNumber) throws UserRegisterationException {
+		}
+	};
+	
+	UserRegisterationRegexIF mobilePhoneValidator = (String phoneNumber) -> {
 		Pattern phonePattern = Pattern.compile("^[0-9]{2}\\s[0-9]{10}$");
 		Matcher matcher;
 		try {
@@ -36,10 +42,10 @@ public class UserRegistartionRegex {
 		}
 		catch (NullPointerException e) {
 			throw new UserRegisterationException(UserRegisterationException.ExceptionType.ENTERED_NULL, "PLEASE ENTER A VALID PHONE NUMBER");
-		}		
-	}
-
-	public void emailValidator(String email) throws UserRegisterationException {
+		}	
+	};
+	
+	UserRegisterationRegexIF emailValidator = (String email) -> {
 		Pattern emailPattern = Pattern.compile("^abc([.+_-][A-Z0-9]+)?[A-Z0-9]*[@][A-Za-z0-9]+.[A-Za-z]{2,}(.[A-Za-z]{2,6})?$",Pattern.CASE_INSENSITIVE);
 		Matcher matcher;
 		try {
@@ -55,9 +61,9 @@ public class UserRegistartionRegex {
 		catch (NullPointerException e) {
 			throw new UserRegisterationException(UserRegisterationException.ExceptionType.ENTERED_NULL, "PLEASE ENTER A VALID EMAIL");
 		}	
-	}
-
-	public void firstNameLastNameValidator(String name) throws UserRegisterationException {
+	};
+	
+	UserRegisterationRegexIF firstNameLastNameValidator = (String name) -> {
 		Pattern firstNamePattern = Pattern.compile("^[A-Z][a-z]{2,}");
 		Matcher matcher;
 		try {
@@ -73,7 +79,5 @@ public class UserRegistartionRegex {
 		catch (NullPointerException e) {
 			throw new UserRegisterationException(UserRegisterationException.ExceptionType.ENTERED_NULL, "PLEASE ENTER A VALID NAME");
 		}
-		
-	}
-
+	};
 }
