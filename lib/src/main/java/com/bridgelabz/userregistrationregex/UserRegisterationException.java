@@ -1,6 +1,6 @@
 package com.bridgelabz.userregistrationregex;
 
-public class UserRegisterationException extends Exception {
+public class UserRegisterationException extends RuntimeException {
 	
 	enum ExceptionType {
 		ENTERED_NULL, ENTERED_EMPTY, INVALID_NAME, INVALID_EMAIL, INVALID_PHONE_NUMBER, INAVLID_PASSWORD,
